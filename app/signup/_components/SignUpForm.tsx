@@ -114,7 +114,7 @@ export default function SignUpForm() {
           </label>
         </div>
 
-        <Button 
+        <Button
           type="button"
           onClick={() => router.push("/onboarding")}
           className="w-full h-[48px] bg-[#066EFF] hover:bg-[#0556cc] text-white font-bold rounded-[16px] shadow-xl shadow-blue-500/30 transition-all text-[16px]"
