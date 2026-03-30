@@ -20,18 +20,18 @@ export const SkillsNeedAttentionCard = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <AlertTriangle className="size-4 text-orange-500" />
-          <h3 className="text-[14px] font-poppins font-bold text-slate-700 tracking-tight">
+          <h3 className="text-[14px] font-poppins font-medium text-slate-700 tracking-tight">
             Skills Need Attention
           </h3>
         </div>
-        <button className="text-[14px] font-semibold cursor-pointer text-blue-500 hover:underline transition-colors tracking-tight">
+        <button className="text-[14px] font-medium cursor-pointer text-blue-500 hover:underline transition-colors tracking-tight">
           View All
         </button>
       </div>
       <div className="space-y-3">
         {skillsNeedAttention.map((skill) => (
           <div key={skill.name} className="flex items-center gap-3">
-            <span className="w-36 text-[13px] text-slate-500 truncate tracking-tight">
+            <span className="w-36 text-[13px] text-slate-500 truncate tracking-tight font-normal">
               {skill.name}
             </span>
             <div className="flex-1 h-2.5 bg-slate-100 rounded-full overflow-hidden">
@@ -43,7 +43,7 @@ export const SkillsNeedAttentionCard = () => {
                 style={{ width: `${skill.progress}%` }}
               />
             </div>
-            <span className="w-12 text-[14px] font-semibold text-slate-700 text-right">
+            <span className="w-12 text-[14px] font-medium text-slate-700 text-right">
               {skill.progress}%
             </span>
           </div>
