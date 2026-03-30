@@ -10,15 +10,11 @@ export const JobdeskAnalyzer = () => {
   const handleAnalyze = () => {
     if (!jobDescription.trim()) return;
     setIsAnalyzing(true);
-    // Simulation analysis
-    setTimeout(() => {
-      // Logic for analysis results could go here
-    }, 2000);
+    setTimeout(() => {}, 2000);
   };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 flex-1 min-h-[600px] pb-[32px]">
-      {/* Left Column: Job Description Input */}
       <div className="lg:col-span-5 h-full min-h-0">
         <div
           className="bg-white rounded-[16px] overflow-hidden flex flex-col h-full"
@@ -59,7 +55,6 @@ export const JobdeskAnalyzer = () => {
         </div>
       </div>
 
-      {/* Right Column: Analysis Results */}
       <div className="lg:col-span-7 h-full min-h-0">
         <div
           className="bg-white rounded-[16px] overflow-hidden flex flex-col h-full shadow-sm shadow-slate-200/20"

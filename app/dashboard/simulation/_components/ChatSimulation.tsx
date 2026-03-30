@@ -95,7 +95,6 @@ export const ChatSimulation = ({
     setMessages((prev) => [...prev, newUserMsg]);
     setInputText("");
 
-    // Optional: Simulate bot response after a delay
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,

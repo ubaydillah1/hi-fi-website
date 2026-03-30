@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Home,
   ShieldCheck,
@@ -34,6 +34,12 @@ const menuItems = [
 
 export const DashboardSidebar = () => {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    // Optional: Clear any local storage or session cookies here
+    router.push("/");
+  };
 
   return (
     <aside
@@ -81,7 +87,10 @@ export const DashboardSidebar = () => {
       </nav>
 
       <div className="p-4 border-t border-gray-50">
-        <button className="flex items-center gap-4 px-4 py-3.5 w-full rounded-[16px] text-slate-400 hover:bg-red-50 hover:text-red-500 transition-all duration-200 group cursor-pointer">
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-4 px-4 py-3.5 w-full rounded-[16px] text-slate-400 hover:bg-red-50 hover:text-red-500 transition-all duration-200 group cursor-pointer"
+        >
           <LogOut className="w-5 h-5" />
           <span className="text-[15px] font-semibold">Log Out</span>
         </button>

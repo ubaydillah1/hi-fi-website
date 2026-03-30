@@ -69,13 +69,11 @@ export const ProfileBanner = () => {
         </div>
       </div>
 
-      {/* Decorative background balls/circles */}
       <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none overflow-hidden select-none">
         <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 -right-32 w-80 h-80 bg-white/5 rounded-full blur-2xl transform -translate-y-1/2" />
         <div className="absolute -bottom-24 -right-12 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl" />
 
-        {/* Sharper circles for that "Readiness Score" style look */}
         <div className="absolute top-[10%] right-[15%] w-16 h-16 bg-white/10 rounded-full border-[0.8px] border-white/10" />
         <div className="absolute bottom-[20%] right-[5%] w-24 h-24 bg-white/5 rounded-full border-[0.8px] border-white/5" />
         <div className="absolute top-1/2 right-[25%] w-8 h-8 bg-white/10 rounded-full border-[0.8px] border-white/10" />
