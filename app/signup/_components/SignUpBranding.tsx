@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SignInBranding() {
+export default function SignUpBranding() {
   const blueGradient =
     "linear-gradient(to bottom, #066EFF, #076AF8, #0867F0, #0963E9, #0A60E2, #0B5CDA, #0C59D3, #0C55CC, #0C52C5, #0D4FBE, #0D4BB7, #0D48B0, #0D45A9, #0D41A2, #0D3E9B)";
 
@@ -21,10 +21,10 @@ export default function SignInBranding() {
           />
         </Link>
 
-        <h1 className="text-[28px] font-bold mb-4">Welcome Back!</h1>
+        <h1 className="text-[28px] font-bold mb-4">Start Your Journey</h1>
         <p className="text-[15px] opacity-80 leading-relaxed">
-          Continue your career readiness journey. Your skills, projects, and
-          progress are waiting for you.
+          Join thousands of IT graduates who are closing their skill gaps and
+          landing their dream jobs.
         </p>
       </div>
 

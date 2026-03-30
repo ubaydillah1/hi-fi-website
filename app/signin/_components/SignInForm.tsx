@@ -30,7 +30,7 @@ export default function SignInForm() {
           </Label>
           <Input
             id="email"
-            className="h-14 bg-white rounded-[12px] px-5 text-[14px] font-medium placeholder:#0A0A0A80 focus-visible:ring-0 border border-[#E8ECF0] outline-none"
+            className="h-[46px] bg-white rounded-[12px] px-5 text-[14px] font-medium placeholder:text-[#0A0A0A80] placeholder:font-normal focus-visible:ring-0 border border-[#E8ECF0] outline-none"
             placeholder="Enter your email or username"
           />
         </div>
@@ -43,7 +43,7 @@ export default function SignInForm() {
             <Input
               id="password"
               type={showPassword ? "text" : "password"}
-              className="h-14 bg-white rounded-[12px] px-5 pr-12 text-[14px] font-medium placeholder:#0A0A0A80 focus-visible:ring-0 border border-[#E8ECF0] outline-none"
+              className="h-[46px] bg-white rounded-[12px] px-5 pr-12 text-[14px] font-medium placeholder:text-[#0A0A0A80] placeholder:font-normal focus-visible:ring-0 border border-[#E8ECF0] outline-none"
               placeholder="Enter your password"
             />
             <button
@@ -91,7 +91,7 @@ export default function SignInForm() {
       <div className="w-full grid grid-cols-2 gap-4">
         <Button
           variant="ghost"
-          className="h-14 rounded-[16px] bg-white font-medium gap-3 hover:bg-slate-50 border border-[#E8ECF0]"
+          className="h-[46px] rounded-[16px] bg-white font-medium gap-3 hover:bg-slate-50 border border-[#E8ECF0]"
         >
           <Image
             src="https://www.google.com/favicon.ico"
@@ -103,7 +103,7 @@ export default function SignInForm() {
         </Button>
         <Button
           variant="ghost"
-          className="h-14 rounded-[16px] bg-white font-medium text-slate-600 gap-3 hover:bg-slate-50 border border-[#E8ECF0]"
+          className="h-[46px] rounded-[16px] bg-white font-medium text-slate-600 gap-3 hover:bg-slate-50 border border-[#E8ECF0]"
         >
           <Image
             src="https://www.facebook.com/favicon.ico"
