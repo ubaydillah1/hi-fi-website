@@ -3,16 +3,15 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer 
+    <footer
       className="w-full flex flex-col items-center font-poppins pt-20 pb-12"
-      style={{ 
+      style={{
         backgroundColor: "#FAFBFC",
-        borderTop: "0.8px solid #E8ECF0"
+        borderTop: "0.8px solid #E8ECF0",
       }}
     >
       <div className="container mx-auto px-4 md:px-6 max-w-[1248px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
-          {/* Logo & Tagline */}
           <div className="lg:col-span-2 flex flex-col space-y-6 max-w-[320px]">
             <Link href="/" className="flex items-center -mt-2">
               <Image
@@ -29,7 +28,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Platform Links */}
           <div className="flex flex-col space-y-5">
             <h4 className="text-[13px] font-poppins font-bold text-gray-900">
               Platform
@@ -62,7 +60,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Resources Links */}
           <div className="flex flex-col space-y-5">
             <h4 className="text-[13px] font-poppins font-bold text-gray-900">
               Resources
@@ -95,7 +92,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company Links */}
           <div className="flex flex-col space-y-5">
             <h4 className="text-[13px] font-poppins font-bold text-gray-900">
               Company
@@ -129,7 +125,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[13px] text-gray-400 font-medium">
             © 2026 Wirapath. All rights reserved.
