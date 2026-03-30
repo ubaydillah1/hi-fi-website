@@ -32,7 +32,8 @@ export const AnalysisCards = () => {
       {analysisItems.map((card, index) => (
         <div
           key={index}
-          className="bg-white p-10 rounded-[40px] border border-[#E8ECF0] flex flex-col gap-4 h-full transition-all duration-300"
+          className="bg-white p-10 rounded-[16px] flex flex-col gap-4 h-full transition-all duration-300"
+          style={{ border: "0.8px solid #E8ECF0" }}
         >
           <div className="flex items-start justify-between">
             <div className="flex items-start gap-5">

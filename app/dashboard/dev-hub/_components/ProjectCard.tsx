@@ -37,7 +37,7 @@ export const ProjectCard = ({
   progress,
 }: ProjectCardProps) => {
   return (
-    <div className="bg-white p-8 rounded-[40px] border border-[#E8ECF0]/80">
+    <div className="bg-white p-8 rounded-[16px] border border-[#E8ECF0]/80">
       <div className="flex flex-col h-full space-y-3">
         <div className="flex justify-between items-center">
           <div className="flex gap-2.5">

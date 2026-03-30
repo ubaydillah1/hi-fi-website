@@ -56,7 +56,7 @@ const TrendIndicator = ({ trend }: { trend: number }) => (
 );
 
 const MarketDemandRow = ({ item }: { item: MarketDemandItem }) => (
-  <div className="p-8 rounded-[32px] bg-slate-50/50 hover:bg-slate-100/60 transition-all duration-300">
+  <div className="p-8 rounded-[16px] bg-slate-50/50 hover:bg-slate-100/60 transition-all duration-300">
     <div className="flex items-center gap-1">
       <RankBadge rank={item.rank} />
 
@@ -82,7 +82,7 @@ const MarketDemandRow = ({ item }: { item: MarketDemandItem }) => (
 export const MarketDemand = () => {
   return (
     <div
-      className="bg-white p-10 rounded-[40px]"
+      className="bg-white p-10 rounded-[16px]"
       style={{ border: "0.8px solid #E8ECF0" }}
     >
       <div className="mb-4">

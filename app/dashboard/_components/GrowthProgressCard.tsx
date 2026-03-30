@@ -11,7 +11,7 @@ const growthProgress = [
 export const GrowthProgressCard = () => {
   return (
     <div
-      className="bg-white rounded-[32px] p-8 flex flex-col h-full gap-4"
+      className="bg-white rounded-[16px] p-8 flex flex-col h-full gap-4"
       style={{ border: "0.8px solid #E8ECF0" }}
     >
       <p className="text-[15px] font-medium text-slate-700 tracking-tight">

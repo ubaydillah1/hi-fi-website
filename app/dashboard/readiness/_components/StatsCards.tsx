@@ -42,7 +42,8 @@ export const StatsCards = () => {
       {stats.map((stat, index) => (
         <div
           key={index}
-          className="bg-white p-8 rounded-[32px] border border-[#E8ECF0] transition-all duration-300"
+          className="bg-white p-8 rounded-[16px] transition-all duration-300"
+          style={{ border: "0.8px solid #E8ECF0" }}
         >
           <div
             className={cn(

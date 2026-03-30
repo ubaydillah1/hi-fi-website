@@ -11,14 +11,14 @@ export default function DevHubPage() {
 
   return (
     <div className="flex flex-col h-full overflow-y-auto bg-[#F8FAFC]">
-      <div className="p-10 space-y-10 max-w-[1400px] mx-auto w-full">
+      <div className="p-10 space-y-6">
         <DevHubHeader />
 
         <div className="flex justify-start">
           <DevHubTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
 
-        <div className="-mt-8">
+        <div className="-mt-5.5">
           {activeTab === "mini-projects" ? <ProjectGrid /> : <AICodeReview />}
         </div>
       </div>

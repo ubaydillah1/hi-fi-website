@@ -119,7 +119,7 @@ const SkillGapRow = ({ item }: { item: SkillGapItem }) => (
 export const SkillGap = () => {
   return (
     <div
-      className="bg-white p-10 rounded-[40px]"
+      className="bg-white p-10 rounded-[16px]"
       style={{ border: "0.8px solid #E8ECF0" }}
     >
       <div className="mb-4">
@@ -128,7 +128,7 @@ export const SkillGap = () => {
         </h2>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border-[0.8px] border-[#E8ECF0]">
+      <div className="overflow-x-auto rounded-[16px] border-[0.8px] border-[#E8ECF0]">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-[#F8FAFC]">

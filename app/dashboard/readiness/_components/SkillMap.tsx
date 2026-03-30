@@ -42,7 +42,7 @@ const statusConfig = {
 
 export const SkillMap = () => {
   return (
-    <div className="bg-white p-10 rounded-[40px] border border-[#E8ECF0]">
+    <div className="bg-white p-10 rounded-[16px] border border-[#E8ECF0]">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
         <h2 className="text-[20px] font-semibold text-slate-900 font-poppins">
           Your Skill Map
@@ -75,7 +75,7 @@ export const SkillMap = () => {
           return (
             <div
               key={index}
-              className="bg-slate-50 border border-slate-100/50 p-6 rounded-[28px] transition-all hover:bg-slate-100/50"
+              className="bg-slate-50 border border-slate-100/50 p-6 rounded-[16px] transition-all hover:bg-slate-100/50"
             >
               <div className="flex items-center gap-4 h-full">
                 <div

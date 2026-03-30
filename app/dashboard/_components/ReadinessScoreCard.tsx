@@ -3,50 +3,43 @@
 import React from "react";
 import { TrendingUp } from "lucide-react";
 
-export const ReadinessScoreCard = ({
-  score,
-  trend,
-}: {
+interface ReadinessScoreCardProps {
   score: number;
   trend: string;
-}) => {
-  const gradientStyle = {
-    background:
-      "linear-gradient(90deg, #066EFF 0%, #076AF8 7%, #0867F0 14%, #0963E9 21%, #0A60E2 28%, #0B5CDA 35%, #0C59D3 42%, #0C55CC 50%, #0C52C5 57%, #0D4FBE 64%, #0D4BB7 71%, #0D48B0 78%, #0D45A9 85%, #0D41A2 92%, #0D3E9B 100%)",
-  };
+}
 
+export const ReadinessScoreCard = ({ score, trend }: ReadinessScoreCardProps) => {
   return (
     <div
-      style={gradientStyle}
-      className="rounded-[32px] p-8 text-white relative overflow-hidden flex flex-col h-full"
+      className="bg-white p-8 rounded-[16px] h-full flex flex-col justify-between transition-all duration-300"
+      style={{ border: "0.8px solid #E8ECF0" }}
     >
-      <div className="relative flex flex-col gap-4">
-        <p className="text-[15px] font-medium opacity-80">Readiness Score</p>
+      <div className="space-y-4">
+        <p className="text-[15px] font-medium text-slate-700 tracking-tight">
+          Readiness Score
+        </p>
 
-        <div className="flex gap-2">
-          <span className="text-[48px] font-extrabold leading-none tracking-tighter">
+        <div className="flex items-baseline gap-1">
+          <span className="text-[48px] font-extrabold text-slate-900 leading-none tracking-tighter font-poppins">
             {score}
           </span>
-          <span className="text-[32px] font-bold opacity-60">%</span>
+          <span className="text-[20px] font-bold text-slate-400">%</span>
         </div>
 
-        <div className="w-full h-2 bg-white/20 rounded-full relative overflow-hidden">
+        <div className="w-full h-2.5 bg-slate-100/50 rounded-full overflow-hidden">
           <div
-            className="absolute top-0 left-0 h-full bg-white rounded-full transition-all duration-1000"
+            className="h-full bg-[#066EFF] rounded-full transition-all duration-1000"
             style={{ width: `${score}%` }}
           />
         </div>
 
-        <div className="flex items-center gap-2 text-[14px] text-[#FFFFFF99]">
-          <span className="flex items-center justify-center w-6 h-6 bg-white/20 rounded-lg">
+        <div className="flex items-center gap-2 text-[14px] text-slate-400 font-medium font-poppins">
+          <div className="w-6 h-6 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-500">
             <TrendingUp className="w-3.5 h-3.5" />
-          </span>
-          {trend} from last week
+          </div>
+          <span>{trend} from last week</span>
         </div>
       </div>
-
-      <div className="absolute -right-20 -top-20 size-[200px] bg-[#FFFFFF0D]  rounded-full" />
-      <div className="absolute -right-15 -bottom-15 size-[150px] bg-[#FFFFFF0D] rounded-full opacity-40" />
     </div>
   );
 };
