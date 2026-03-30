@@ -83,7 +83,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --accent-blue: #0D3E9B;
+  --color-slate-400: #64748B;
+  --accent-blue: #0d3e9b;
 }
 
 .dark {
