@@ -12,7 +12,6 @@ export default function Step4({
 }) {
   return (
     <div className="flex flex-col items-center justify-center w-full animate-in fade-in duration-500 max-w-[720px] mx-auto">
-
       <div className="w-full mb-10">
         <h2 className="text-[32px] font-extrabold text-[#0D3E9B] mb-2 tracking-tight">
           Upload Your CV
@@ -22,7 +21,6 @@ export default function Step4({
           experience.
         </p>
       </div>
-
 
       <div className="w-full h-[250px] rounded-[32px] border-[1.6px] border-dashed border-[#066EFF4D] bg-[#F0F4FF80] flex flex-col items-center justify-center gap-4 cursor-pointer hover:bg-[#F0F4FF] transition-all group">
         <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm shadow-blue-100 group-hover:scale-105 transition-transform">
@@ -38,13 +36,11 @@ export default function Step4({
         </div>
       </div>
 
-
       <div className="w-full text-left mt-8">
         <button className="text-[14px] font-medium text-slate-400 hover:text-gray-900 transition-colors hover:underline cursor-pointer">
           I&apos;ll do this later
         </button>
       </div>
-
 
       <div className="flex items-center gap-12 mt-12 w-full">
         <button

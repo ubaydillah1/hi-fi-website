@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
@@ -37,13 +38,16 @@ export default function HeroSection() {
               >
                 Start Free Assessment <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="h-14 px-8 text-[16px] rounded-[14px] border-gray-200 hover:bg-gray-50"
-              >
-                Sign In
-              </Button>
+              <Link href="/signin">
+                <Button
+                  id="hero-signin"
+                  variant="outline"
+                  size="lg"
+                  className="h-14 px-8 text-[16px] rounded-[14px] border-gray-200 hover:bg-gray-50 cursor-pointer"
+                >
+                  Sign In
+                </Button>
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4 text-[13px]">

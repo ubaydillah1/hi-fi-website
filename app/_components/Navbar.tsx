@@ -42,14 +42,16 @@ export default function Navbar() {
 
         <div className="flex items-center gap-6 lg:gap-10">
           <Link
-            href="/signin"
+            href="#hero-signin"
             className="text-[16px] font-semibold text-[#066EFF] hover:text-[#0556cc] transition-colors"
           >
             Sign In
           </Link>
-          <Button className="bg-[#066EFF] hover:bg-[#0556cc] rounded-[16px] py-6 px-8 text-[16px] font-bold shadow-lg shadow-blue-500/25 transition-all active:scale-95">
-            Get Started Free
-          </Button>
+          <Link href="/signup">
+            <Button className="bg-[#066EFF] hover:bg-[#0556cc] rounded-[16px] py-6 px-8 text-[16px] font-bold shadow-lg shadow-blue-500/25 transition-all active:scale-95">
+              Get Started Free
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
