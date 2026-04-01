@@ -22,7 +22,7 @@ export default function DashboardPage() {
             <GrowthProgressCard />
           </div>
 
-          <div className="lg:col-span-4 h-full">
+          <div className="lg:col-span-4 h-full bg-cover">
             <QuickActionsCard />
           </div>
         </div>
