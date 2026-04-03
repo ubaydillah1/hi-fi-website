@@ -12,8 +12,10 @@ import {
   User,
   Settings,
   LogOut,
+  ChevronLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SheetClose } from "@/components/ui/sheet";
 
 const menuItems = [
   { icon: Home, label: "Home", href: "/dashboard" },
@@ -32,7 +34,7 @@ const menuItems = [
   { icon: Settings, label: "Settings", href: "/dashboard/settings" },
 ];
 
-export const DashboardSidebar = () => {
+export const DashboardSidebar = ({ className, isMobile }: { className?: string; isMobile?: boolean }) => {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -43,10 +45,10 @@ export const DashboardSidebar = () => {
 
   return (
     <aside
-      className="w-[280px] bg-white flex flex-col h-full shrink-0"
+      className={cn("w-[280px] bg-white flex flex-col h-full shrink-0", className)}
       style={{ borderRight: "0.8px solid #E8ECF0" }}
     >
-      <div className="p-8 -mt-2">
+      <div className="p-8 -mt-2 flex items-center justify-between">
         <Link href="/dashboard">
           <Image
             src="/assets/images/logo.png"
@@ -56,6 +58,15 @@ export const DashboardSidebar = () => {
             className="object-contain"
           />
         </Link>
+        
+        {/* Custom Mobile Close Button */}
+        {isMobile && (
+          <SheetClose asChild>
+            <button className="lg:hidden p-2 -mr-2 text-slate-400 hover:bg-slate-50 rounded-xl transition-all active:scale-95">
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+          </SheetClose>
+        )}
       </div>
 
       <nav className="flex-1 px-4 space-y-1">
