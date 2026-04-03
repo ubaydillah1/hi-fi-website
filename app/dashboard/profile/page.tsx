@@ -9,15 +9,15 @@ import { DocumentsCard } from "./_components/DocumentsCard";
 export default function ProfilePage() {
   return (
     <div className="flex flex-col h-full overflow-y-auto bg-[#F8FAFC]">
-      <div className="px-10 py-10 space-y-8">
+      <div className="p-4 md:p-8 lg:p-10 space-y-6 md:space-y-8">
         <ProfileBanner />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-8 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
+          <div className="lg:col-span-8 space-y-6 md:space-y-8">
             <SkillDetails />
           </div>
 
-          <div className="lg:col-span-4 space-y-8">
+          <div className="lg:col-span-4 space-y-6 md:space-y-8">
             <IntegrationsCard />
             <DocumentsCard />
           </div>
