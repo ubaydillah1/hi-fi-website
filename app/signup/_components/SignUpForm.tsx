@@ -57,8 +57,11 @@ export default function SignUpForm() {
             />
             <button
               type="button"
-              className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-300"
-              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-2 p-3 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-400 transition-colors z-20 cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPassword(!showPassword);
+              }}
             >
               {showPassword ? (
                 <EyeOffIcon className="w-5 h-5 stroke-[1.5]" />
@@ -85,8 +88,11 @@ export default function SignUpForm() {
             />
             <button
               type="button"
-              className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-300"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-2 p-3 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-400 transition-colors z-20 cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowConfirmPassword(!showConfirmPassword);
+              }}
             >
               {showConfirmPassword ? (
                 <EyeOffIcon className="w-5 h-5 stroke-[1.5]" />
@@ -102,7 +108,7 @@ export default function SignUpForm() {
             id="terms"
             className="border-slate-200 rounded-[4px] data-[state=checked]:bg-blue-600"
           />
-          <label htmlFor="terms" className="leading-normal">
+          <label htmlFor="terms" className="leading-normal cursor-pointer select-none">
             I agree to the{" "}
             <Link href="/terms" className="text-[#066EFF] font-medium">
               Terms of Service

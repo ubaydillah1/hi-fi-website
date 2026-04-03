@@ -50,8 +50,11 @@ export default function SignInForm() {
             />
             <button
               type="button"
-              className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-300"
-              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-2 p-3 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-400 transition-colors z-20 cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPassword(!showPassword);
+              }}
             >
               {showPassword ? (
                 <EyeOffIcon className="w-5 h-5 stroke-[1.5]" />
@@ -68,7 +71,7 @@ export default function SignInForm() {
               id="remember"
               className="border-slate-200 rounded-[4px] data-[state=checked]:bg-blue-600"
             />
-            <label htmlFor="remember" className="text-slate-400 font-medium">
+            <label htmlFor="remember" className="text-slate-400 font-medium cursor-pointer select-none">
               Remember me
             </label>
           </div>
