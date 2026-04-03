@@ -45,7 +45,7 @@ const miniProjects = [
 
 export const ProjectGrid = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 pb-4">
       {miniProjects.map((project) => (
         <ProjectCard key={project.id} {...project} />
       ))}
