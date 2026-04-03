@@ -11,7 +11,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SignInForm() {
-  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -80,13 +79,14 @@ export default function SignInForm() {
           </Link>
         </div>
 
-        <Button 
-          type="button"
-          onClick={() => router.push("/onboarding")}
-          className="w-full h-[48px] bg-[#066EFF] hover:bg-[#0556cc] text-white font-bold rounded-[16px] shadow-xl shadow-blue-500/30 transition-all text-[16px]"
-        >
-          Sign In
-        </Button>
+        <Link href="/onboarding" className="block w-full group">
+          <Button 
+            type="button"
+            className="w-full h-[48px] bg-[#066EFF] hover:bg-[#0556cc] text-white font-bold rounded-[16px] shadow-xl shadow-blue-500/30 transition-all text-[16px] cursor-pointer"
+          >
+            Sign In
+          </Button>
+        </Link>
       </form>
 
       <div className="w-full flex items-center gap-4 my-9">

@@ -11,7 +11,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SignUpForm() {
-  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -108,7 +107,10 @@ export default function SignUpForm() {
             id="terms"
             className="border-slate-200 rounded-[4px] data-[state=checked]:bg-blue-600"
           />
-          <label htmlFor="terms" className="leading-normal cursor-pointer select-none">
+          <label
+            htmlFor="terms"
+            className="leading-normal cursor-pointer select-none"
+          >
             I agree to the{" "}
             <Link href="/terms" className="text-[#066EFF] font-medium">
               Terms of Service
@@ -120,13 +122,14 @@ export default function SignUpForm() {
           </label>
         </div>
 
-        <Button
-          type="button"
-          onClick={() => router.push("/onboarding")}
-          className="w-full h-[48px] bg-[#066EFF] hover:bg-[#0556cc] text-white font-bold rounded-[16px] shadow-xl shadow-blue-500/30 transition-all text-[16px]"
-        >
-          Create Account
-        </Button>
+        <Link href="/onboarding" className="block w-full group">
+          <Button
+            type="button"
+            className="w-full h-[48px] bg-[#066EFF] hover:bg-[#0556cc] text-white font-bold rounded-[16px] shadow-xl shadow-blue-500/30 transition-all text-[16px] cursor-pointer"
+          >
+            Create Account
+          </Button>
+        </Link>
       </form>
 
       <div className="w-full flex items-center gap-4 my-9">

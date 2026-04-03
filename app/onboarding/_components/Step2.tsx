@@ -7,19 +7,18 @@ import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 export default function Step2({ onNext, onBack }: { onNext: () => void; onBack: () => void }) {
   return (
-    <div className="flex flex-col items-center justify-center w-full animate-in fade-in duration-500 max-w-[720px] mx-auto">
-      <div className="w-full mb-10">
-        <h2 className="text-[32px] font-extrabold text-[#0D3E9B] mb-2 tracking-tight">
+    <div className="flex flex-col items-center justify-center w-full animate-in fade-in duration-500 max-w-[720px] mx-auto py-4 px-4 sm:px-0">
+      <div className="w-full mb-8 md:mb-10 text-center md:text-left">
+        <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-extrabold text-[#0D3E9B] mb-2 tracking-tight leading-tight">
           Tell us about yourself
         </h2>
-        <p className="text-[15px] font-medium text-slate-400 leading-relaxed opacity-80">
+        <p className="text-[14px] md:text-[15px] font-medium text-slate-400 leading-relaxed opacity-80">
           We&apos;ll personalize your experience based on this
         </p>
       </div>
 
-
-      <div className="w-full space-y-6">
-        <div className="grid grid-cols-2 gap-6 w-full">
+      <div className="w-full space-y-5 md:space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full">
           <div className="space-y-2">
             <Label htmlFor="firstName" className="text-[14px] font-medium text-[#0A0A1F] ml-1">
               First Name
@@ -76,19 +75,18 @@ export default function Step2({ onNext, onBack }: { onNext: () => void; onBack: 
         </div>
       </div>
 
-
-      <div className="flex items-center gap-12 mt-12 w-full">
+      <div className="flex items-center gap-3 mt-10 md:mt-12 w-full">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-[15px] font-medium text-slate-400 hover:text-gray-900 transition-colors"
+          className="h-14 w-14 flex items-center justify-center rounded-[20px] bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-gray-900 transition-all active:scale-95 sm:w-auto sm:px-6 sm:gap-2 sm:bg-transparent sm:hover:bg-transparent sm:h-auto"
         >
           <ChevronLeftIcon className="w-5 h-5" />
-          Back
+          <span className="hidden sm:inline text-[15px] font-semibold">Back</span>
         </button>
-        <div className="grow" />
+        <div className="hidden sm:block grow" />
         <Button 
           onClick={onNext}
-          className="h-14 px-10 bg-[#066EFF] hover:bg-[#0556cc] rounded-[20px] text-[15px] font-bold text-white shadow-xl shadow-blue-500/30 gap-3 group"
+          className="grow sm:grow-0 h-14 px-12 bg-linear-to-r from-[#066EFF] to-[#0556cc] hover:from-[#0556cc] hover:to-[#044bb3] rounded-[20px] text-[15px] font-bold text-white shadow-lg shadow-blue-500/25 gap-3 group transition-all active:scale-[0.98]"
         >
           Continue
           <ChevronRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
