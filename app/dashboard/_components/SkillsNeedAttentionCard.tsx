@@ -20,11 +20,11 @@ export const SkillsNeedAttentionCard = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <AlertTriangle className="size-4 text-orange-500" />
-          <h3 className="text-[14px] md:text-[15px] font-bold text-slate-500 uppercase tracking-wider">
+          <h3 className="text-[15px] font-medium text-slate-700 tracking-tight font-poppins">
             Skills Need Attention
           </h3>
         </div>
-        <button className="text-[12px] md:text-[14px] font-bold cursor-pointer text-[#066EFF] hover:underline transition-colors tracking-tight">
+        <button className="text-[13px] md:text-[14px] font-medium cursor-pointer text-[#066EFF] hover:underline transition-colors tracking-tight">
           View All
         </button>
       </div>
@@ -32,10 +32,10 @@ export const SkillsNeedAttentionCard = () => {
         {skillsNeedAttention.map((skill) => (
           <div key={skill.name} className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <span className="text-[13px] md:text-[14px] font-bold text-slate-700 tracking-tight">
+              <span className="text-[13px] md:text-[14px] font-medium text-slate-700 tracking-tight">
                 {skill.name}
               </span>
-              <span className="text-[12px] md:text-[13px] font-bold text-slate-400">
+              <span className="text-[12px] md:text-[13px] font-medium text-slate-400">
                 {skill.progress}%
               </span>
             </div>

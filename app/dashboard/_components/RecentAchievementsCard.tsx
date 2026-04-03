@@ -36,7 +36,7 @@ export const RecentAchievementsCard = () => {
     >
       <div className="flex items-center gap-3">
         <Award className="w-5 h-5 text-[#066EFF]" />
-        <h3 className="text-[14px] md:text-[15px] font-bold text-slate-500 uppercase tracking-wider">
+        <h3 className="text-[15px] font-medium text-slate-700 tracking-tight font-poppins">
           Recent Achievements
         </h3>
       </div>
@@ -55,7 +55,7 @@ export const RecentAchievementsCard = () => {
               <item.icon className={cn("w-5 h-5 md:w-6 md:h-6", item.color)} />
             </div>
             <div className="min-w-0">
-              <h4 className="text-[13px] md:text-[14px] font-bold text-slate-700 truncate">
+              <h4 className="text-[13px] md:text-[14px] font-medium text-slate-700 truncate font-poppins">
                 {item.title}
               </h4>
               <p className="text-[11px] md:text-[12px] font-medium text-slate-400 truncate">

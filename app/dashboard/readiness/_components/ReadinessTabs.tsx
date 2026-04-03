@@ -20,7 +20,7 @@ export const ReadinessTabs = ({
   setActiveTab,
 }: ReadinessTabsProps) => {
   return (
-    <div className="flex gap-4 border-b border-slate-100 pb-0 mb-6">
+    <div className="flex gap-4 border-b border-slate-100 overflow-x-auto [&::-webkit-scrollbar]:hidden whitespace-nowrap mb-6 px-1.5 -mx-4 md:mx-0">
       {tabs.map((tab) => (
         <button
           key={tab.id}

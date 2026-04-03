@@ -56,17 +56,17 @@ const TrendIndicator = ({ trend }: { trend: number }) => (
 );
 
 const MarketDemandRow = ({ item }: { item: MarketDemandItem }) => (
-  <div className="p-8 rounded-[16px] bg-slate-50/50 hover:bg-slate-100/60 transition-all duration-300">
+  <div className="p-4 md:p-8 rounded-[16px] bg-slate-50/50 hover:bg-slate-100/60 transition-all duration-300">
     <div className="flex items-center gap-1">
       <RankBadge rank={item.rank} />
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-[18px] font-medium text-slate-900 font-poppins leading-none">
+          <h3 className="text-[16px] md:text-[18px] font-medium text-slate-900 font-poppins leading-none truncate">
             {item.skill}
           </h3>
           <div className="flex items-center gap-4">
-            <span className="text-[14px] text-slate-400 font-normal">
+            <span className="text-[13px] md:text-[14px] text-slate-400 font-normal whitespace-nowrap">
               {item.jobs}
             </span>
             <TrendIndicator trend={item.trend} />
@@ -82,11 +82,10 @@ const MarketDemandRow = ({ item }: { item: MarketDemandItem }) => (
 export const MarketDemand = () => {
   return (
     <div
-      className="bg-white p-10 rounded-[16px]"
-      style={{ border: "0.8px solid #E8ECF0" }}
+      className="bg-white p-4 md:p-8 lg:p-10 rounded-[16px] border border-[#E8ECF0]"
     >
       <div className="mb-4">
-        <h2 className="text-[20px] font-semibold text-slate-900 font-poppins">
+        <h2 className="text-[18px] md:text-[20px] font-semibold text-slate-900 font-poppins">
           Market Demand Insights
         </h2>
       </div>

@@ -46,7 +46,7 @@ export const DashboardSidebar = ({ className, isMobile }: { className?: string; 
   return (
     <aside
       className={cn("w-[280px] bg-white flex flex-col h-full shrink-0", className)}
-      style={{ borderRight: "0.8px solid #E8ECF0" }}
+      style={!isMobile ? { borderRight: "0.8px solid #E8ECF0" } : undefined}
     >
       <div className="p-8 -mt-2 flex items-center justify-between">
         <Link href="/dashboard">
@@ -72,9 +72,8 @@ export const DashboardSidebar = ({ className, isMobile }: { className?: string; 
       <nav className="flex-1 px-4 space-y-1">
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
-          return (
+          const content = (
             <Link
-              key={item.label}
               href={item.href}
               className={cn(
                 "flex items-center gap-4 px-4 py-3.5 rounded-[16px] transition-all duration-200 group",
@@ -94,17 +93,37 @@ export const DashboardSidebar = ({ className, isMobile }: { className?: string; 
               <span className="text-[15px] font-semibold">{item.label}</span>
             </Link>
           );
+
+          return isMobile ? (
+            <SheetClose asChild key={item.label}>
+              {content}
+            </SheetClose>
+          ) : (
+            <React.Fragment key={item.label}>{content}</React.Fragment>
+          );
         })}
       </nav>
 
       <div className="p-4 border-t border-gray-50">
-        <button
-          onClick={handleLogout}
-          className="flex items-center gap-4 px-4 py-3.5 w-full rounded-[16px] text-slate-400 hover:bg-red-50 hover:text-red-500 transition-all duration-200 group cursor-pointer"
-        >
-          <LogOut className="w-5 h-5" />
-          <span className="text-[15px] font-semibold">Log Out</span>
-        </button>
+        {isMobile ? (
+          <SheetClose asChild>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-4 px-4 py-3.5 w-full rounded-[16px] text-slate-400 hover:bg-red-50 hover:text-red-500 transition-all duration-200 group cursor-pointer"
+            >
+              <LogOut className="w-5 h-5" />
+              <span className="text-[15px] font-semibold">Log Out</span>
+            </button>
+          </SheetClose>
+        ) : (
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-4 px-4 py-3.5 w-full rounded-[16px] text-slate-400 hover:bg-red-50 hover:text-red-500 transition-all duration-200 group cursor-pointer"
+          >
+            <LogOut className="w-5 h-5" />
+            <span className="text-[15px] font-semibold">Log Out</span>
+          </button>
+        )}
       </div>
     </aside>
   );

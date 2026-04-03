@@ -28,39 +28,39 @@ const analysisItems = [
 
 export const AnalysisCards = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-10">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 pb-10">
       {analysisItems.map((card, index) => (
         <div
           key={index}
-          className="bg-white p-10 rounded-[16px] flex flex-col gap-4 h-full transition-all duration-300"
-          style={{ border: "0.8px solid #E8ECF0" }}
+          className="bg-white p-5 md:p-10 rounded-[24px] flex flex-col gap-4 h-full transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/20"
+          style={{ border: "1.2px solid #F1F5F9" }}
         >
           <div className="flex items-start justify-between">
-            <div className="flex items-start gap-5">
+            <div className="flex items-start gap-4 md:gap-5">
               <div
                 className={cn(
-                  "w-14 h-14 rounded-2xl flex items-center justify-center shrink-0",
+                  "w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-[18px] flex items-center justify-center shrink-0",
                   card.iconColor,
                 )}
               >
-                <card.icon className="w-7 h-7" />
+                <card.icon className="w-5 h-5 md:w-7 md:h-7" />
               </div>
-              <div className="space-y-1 pt-1">
-                <h3 className="text-[14px] font-medium text-slate-900 font-poppins">
+              <div className="space-y-1 pt-0.5">
+                <h3 className="text-[14px] md:text-[15px] font-medium text-slate-900 font-poppins">
                   {card.title}
                 </h3>
-                <p className={cn("text-[14px] font-normal", card.statusColor)}>
+                <p className={cn("text-[13px] md:text-[14px] font-medium", card.statusColor)}>
                   {card.status}
                 </p>
               </div>
             </div>
           </div>
 
-          <p className="text-[13px] text-slate-500 leading-relaxed">
+          <p className="text-[12px] md:text-[13px] text-slate-500 leading-relaxed font-medium">
             {card.description}
           </p>
 
-          <button className="flex items-center gap-2.5 text-[#066EFF] font-medium text-[15px] w-fit hover:gap-3 transition-all group pt-2 cursor-pointer">
+          <button className="flex items-center gap-2.5 text-[#066EFF] font-medium text-[14px] md:text-[15px] w-fit hover:gap-3 transition-all group pt-2 cursor-pointer">
             <Upload className="w-4 h-4" />
             {card.action}
           </button>

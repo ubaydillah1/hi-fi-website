@@ -42,9 +42,9 @@ const statusConfig = {
 
 export const SkillMap = () => {
   return (
-    <div className="bg-white p-10 rounded-[16px] border border-[#E8ECF0]">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-        <h2 className="text-[20px] font-semibold text-slate-900 font-poppins">
+    <div className="bg-white p-4 md:p-8 lg:p-10 rounded-[16px] border border-[#E8ECF0]">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <h2 className="text-[18px] md:text-[20px] font-semibold text-slate-900 font-poppins">
           Your Skill Map
         </h2>
 
@@ -75,7 +75,7 @@ export const SkillMap = () => {
           return (
             <div
               key={index}
-              className="bg-slate-50 border border-slate-100/50 p-6 rounded-[16px] transition-all hover:bg-slate-100/50"
+              className="bg-slate-50 border border-slate-100/50 p-4 md:p-6 rounded-[16px] transition-all hover:bg-slate-100/50"
             >
               <div className="flex items-center gap-4 h-full">
                 <div
@@ -84,12 +84,12 @@ export const SkillMap = () => {
 
                 <div className="flex-1 space-y-2.5">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-[17px] font-medium text-slate-900 leading-tight font-poppins">
+                    <h3 className="text-[16px] md:text-[17px] font-medium text-slate-900 leading-tight font-poppins">
                       {skill.name}
                     </h3>
                     <span
                       className={cn(
-                        "text-[17px] font-medium",
+                        "text-[16px] md:text-[17px] font-medium",
                         status === "strong"
                           ? "text-[#10B981]"
                           : status === "moderate"
@@ -111,7 +111,7 @@ export const SkillMap = () => {
                     />
                   </div>
 
-                  <p className="text-[13px] text-slate-400 font-normal">
+                  <p className="text-[12px] md:text-[13px] text-slate-400 font-normal truncate">
                     {skill.category}
                   </p>
                 </div>

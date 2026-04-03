@@ -16,17 +16,17 @@ export const ReadinessScoreCard = ({ score, trend }: ReadinessScoreCardProps) =>
     >
       <div className="space-y-4 md:space-y-6">
         <div className="flex items-center justify-between">
-          <p className="text-[14px] md:text-[15px] font-bold text-slate-500 uppercase tracking-wider">
-            Overall Readiness
+          <p className="text-[15px] font-medium text-slate-700 tracking-tight">
+            Readiness Score
           </p>
           <div className="flex items-center gap-1.5 px-2 py-1 bg-emerald-50 rounded-full">
             <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
-            <span className="text-[12px] font-bold text-emerald-600">{trend}</span>
+            <span className="text-[12px] font-medium text-emerald-600">{trend}</span>
           </div>
         </div>
 
         <div className="flex items-baseline gap-1">
-          <span className="text-[40px] md:text-[48px] font-extrabold text-[#0D3E9B] leading-none tracking-tighter">
+          <span className="text-[40px] md:text-[48px] font-bold text-[#0D3E9B] leading-none tracking-tighter">
             {score}
           </span>
           <span className="text-[18px] md:text-[20px] font-bold text-slate-300">%</span>

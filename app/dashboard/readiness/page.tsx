@@ -14,7 +14,7 @@ export default function ReadinessCenterPage() {
 
   return (
     <div className="flex flex-col h-full overflow-y-auto bg-[#F8FAFC]">
-      <div className="p-10 space-y-6">
+      <div className="p-4 md:p-8 lg:p-10 space-y-4 md:space-y-6">
         <ReadinessHeader />
 
         <ReadinessTabs activeTab={activeTab} setActiveTab={setActiveTab} />
