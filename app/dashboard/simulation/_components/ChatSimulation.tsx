@@ -17,12 +17,12 @@ const interviewSuggestions = [
 ];
 
 const BotMessage = ({ text }: { text: string }) => (
-  <div className="flex items-start gap-3 max-w-[85%]">
-    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 border-[0.8px] border-slate-200/50">
-      <Bot className="w-4 h-4" />
+  <div className="flex items-start gap-2.5 md:gap-3 max-w-[90%] md:max-w-[85%]">
+    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 border-[0.8px] border-slate-200/50">
+      <Bot className="w-3.5 h-3.5 md:w-4 md:h-4" />
     </div>
-    <div className="bg-slate-50 p-5 rounded-[24px] rounded-tl-none border-[0.8px] border-slate-100 shadow-sm shadow-slate-200/20">
-      <p className="text-[15px] text-slate-700 leading-relaxed font-normal">
+    <div className="bg-slate-50 p-4 md:p-5 rounded-[20px] md:rounded-[24px] rounded-tl-none border border-[#F1F5F9] shadow-sm shadow-slate-200/10">
+      <p className="text-[14px] md:text-[15px] text-slate-700 leading-relaxed font-normal">
         {text}
       </p>
     </div>
@@ -30,12 +30,12 @@ const BotMessage = ({ text }: { text: string }) => (
 );
 
 const UserMessage = ({ text }: { text: string }) => (
-  <div className="flex items-start gap-3 max-w-[85%] ml-auto justify-end">
-    <div className="bg-[#066EFF] p-5 rounded-[24px] rounded-tr-none text-white shadow-lg shadow-blue-500/10">
-      <p className="text-[15px] leading-relaxed font-normal">{text}</p>
+  <div className="flex items-start gap-2.5 md:gap-3 max-w-[90%] md:max-w-[85%] ml-auto justify-end">
+    <div className="bg-[#066EFF] p-4 md:p-5 rounded-[20px] md:rounded-[24px] rounded-tr-none text-white shadow-lg shadow-blue-500/10">
+      <p className="text-[14px] md:text-[15px] leading-relaxed font-normal">{text}</p>
     </div>
-    <div className="w-8 h-8 rounded-full bg-[#066EFF]/10 flex items-center justify-center text-[#066EFF] shrink-0 border-[0.8px] border-blue-500/10">
-      <User className="w-4 h-4" />
+    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#066EFF]/10 flex items-center justify-center text-[#066EFF] shrink-0 border-[0.8px] border-blue-500/10">
+      <User className="w-3.5 h-3.5 md:w-4 md:h-4" />
     </div>
   </div>
 );
@@ -112,23 +112,23 @@ export const ChatSimulation = ({
 
   return (
     <div
-      className="bg-white flex flex-col h-full rounded-[16px] overflow-hidden"
-      style={{ border: "0.8px solid #E8ECF0" }}
+      className="bg-white flex flex-col h-full rounded-[24px] overflow-hidden"
+      style={{ border: "1.2px solid #F1F5F9" }}
     >
-      <div className="px-5 py-4 border-b-[0.8px] border-[#E8ECF0] flex items-center justify-between bg-slate-50/10 shrink-0">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-[#066EFF] border-[0.8px] border-blue-100 font-bold">
-            <Bot className="w-6 h-6" />
+      <div className="px-4 md:px-6 py-3.5 md:py-4 border-b border-[#F1F5F9] flex items-center justify-between bg-slate-50/50 shrink-0">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-50 flex items-center justify-center text-[#066EFF] border border-blue-100">
+            <Bot className="w-5 h-5 md:w-6 md:h-6" />
           </div>
           <div className="space-y-0.5">
-            <h3 className="text-[17px] font-semibold text-slate-900 font-poppins">
+            <h3 className="text-[15px] md:text-[17px] font-semibold text-slate-900 font-poppins leading-tight">
               {type === "recruiter"
                 ? `Interview at ${companyName}`
                 : "Salary Negotiation Coach"}
             </h3>
             <div className="flex items-center gap-1.5 text-emerald-500">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[13px] font-medium font-poppins">
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[12px] md:text-[13px] font-medium font-poppins">
                 Active simulation
               </span>
             </div>
@@ -138,7 +138,7 @@ export const ChatSimulation = ({
 
       <div
         ref={scrollRef}
-        className="flex-1 px-5 py-6 space-y-6 overflow-y-auto no-scrollbar scroll-smooth bg-slate-50/10"
+        className="flex-1 px-4 md:px-6 py-5 md:py-8 space-y-5 md:space-y-6 overflow-y-auto no-scrollbar scroll-smooth bg-slate-50/20"
       >
         {messages.map((msg) =>
           msg.sender === "bot" ? (
@@ -149,14 +149,14 @@ export const ChatSimulation = ({
         )}
       </div>
 
-      <div className="px-5 py-6 space-y-6 bg-white border-t-[0.8px] border-[#E8ECF0] shrink-0">
+      <div className="px-4 md:px-6 py-4 md:py-6 space-y-4 md:space-y-6 bg-white border-t border-[#F1F5F9] shrink-0">
         {showSuggestions && type === "recruiter" && (
-          <div className="flex flex-wrap gap-2.5">
+          <div className="hidden md:flex flex-wrap gap-2 md:gap-2.5">
             {interviewSuggestions.map((s) => (
               <button
                 key={s}
                 onClick={() => setInputText(s)}
-                className="px-5 py-2.5 rounded-[16px] bg-blue-50/50 border-[0.8px] border-blue-100 text-[#066EFF] text-[13px] font-medium transition-all hover:bg-blue-100/50 font-poppins"
+                className="px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-[16px] bg-blue-50 text-[#066EFF] text-[12px] md:text-[13px] font-semibold transition-all hover:bg-blue-100 font-poppins cursor-pointer"
               >
                 {s}
               </button>
@@ -164,22 +164,22 @@ export const ChatSimulation = ({
           </div>
         )}
 
-        <div className="flex items-center gap-4">
-          <div className="flex-1 bg-slate-50 border-[0.8px] border-slate-100 rounded-[16px] px-8 py-4 focus-within:bg-white focus-within:border-blue-200 transition-all">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex-1 bg-slate-50 border border-slate-100 rounded-xl md:rounded-[18px] px-4 md:px-8 py-3 md:py-4 focus-within:bg-white focus-within:border-blue-200 transition-all">
             <input
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Type your response..."
-              className="bg-transparent border-none outline-none w-full text-[15px] text-slate-700 placeholder:text-slate-400 font-medium"
+              className="bg-transparent border-none outline-none w-full text-[14px] md:text-[15px] text-slate-700 placeholder:text-slate-400 font-medium"
             />
           </div>
           <button
             onClick={handleSend}
-            className="w-14 h-14 rounded-[16px] bg-[#066EFF] flex items-center justify-center text-white hover:bg-blue-600 transition-all shrink-0 active:scale-95 group shadow-none"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-[18px] bg-[#066EFF] flex items-center justify-center text-white hover:bg-blue-600 transition-all shrink-0 active:scale-95 group shadow-lg shadow-blue-500/20"
           >
-            <Send className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <Send className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
       </div>

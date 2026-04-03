@@ -33,7 +33,7 @@ const CompanyItem = ({
     <button
       onClick={() => onClick(id)}
       className={cn(
-        "w-full flex items-center gap-5 p-6 rounded-[24px] text-left transition-all duration-300 border-[0.8px]",
+        "w-full flex items-center gap-4 md:gap-5 p-4 md:p-6 rounded-[20px] text-left transition-all duration-300 border-[0.8px]",
         isActive
           ? "bg-blue-50 border-blue-100 shadow-sm shadow-blue-500/5 scale-[1.02]"
           : "bg-white border-transparent hover:bg-slate-50 hover:border-slate-100",
@@ -41,25 +41,25 @@ const CompanyItem = ({
     >
       <div
         className={cn(
-          "w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border-[0.8px]",
+          "w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shrink-0 border-[0.8px]",
           isActive
             ? "bg-white text-[#066EFF] border-blue-50 shadow-sm shadow-blue-500/5"
             : "bg-slate-50 text-slate-400 border-slate-100",
         )}
       >
-        <Building2 className="w-5 h-5" />
+        <Building2 className="w-4.5 h-4.5 md:w-5 md:h-5" />
       </div>
 
       <div className="flex-1 min-w-0">
         <h4
           className={cn(
-            "text-[16px] font-semibold font-poppins leading-tight truncate mb-0.5",
+            "text-[15px] md:text-[16px] font-semibold font-poppins leading-tight truncate mb-0.5",
             isActive ? "text-[#066EFF]" : "text-slate-900",
           )}
         >
           {name}
         </h4>
-        <p className="text-[14px] text-slate-400 font-normal truncate">
+        <p className="text-[13px] md:text-[14px] text-slate-400 font-normal truncate">
           {role}
         </p>
       </div>
@@ -76,16 +76,16 @@ export const CompanyList = ({
 }) => {
   return (
     <div
-      className="bg-white rounded-[16px] flex flex-col h-full overflow-hidden"
-      style={{ border: "0.8px solid #E8ECF0" }}
+      className="bg-white rounded-[24px] flex flex-col h-full overflow-hidden transition-all hover:shadow-xl hover:shadow-slate-200/20"
+      style={{ border: "1.2px solid #F1F5F9" }}
     >
-      <div className="px-5 py-4 border-b-[0.8px] border-[#E8ECF0] text-left bg-slate-50/10">
-        <h3 className="text-[17px] font-semibold text-slate-800 font-poppins">
+      <div className="px-6 py-4 md:py-5 border-b border-[#F1F5F9] text-left bg-slate-50/50">
+        <h3 className="text-[17px] md:text-[18px] font-semibold text-slate-800 font-poppins">
           Select Company
         </h3>
       </div>
 
-      <div className="p-4 space-y-3 flex-1 overflow-y-auto no-scrollbar pb-2">
+      <div className="p-3 md:p-5 space-y-3.5 flex-1 overflow-y-auto no-scrollbar pb-6">
         {companies.map((company) => (
           <CompanyItem
             key={company.id}
