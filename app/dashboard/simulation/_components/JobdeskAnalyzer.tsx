@@ -14,7 +14,7 @@ export const JobdeskAnalyzer = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 flex-1 min-h-[500px] md:min-h-[600px] pb-[32px]">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 flex-1 min-h-[500px] md:min-h-[600px] pb-0 lg:pb-[32px]">
       <div className="lg:col-span-5 h-[400px] lg:h-full min-h-0">
         <div
           className="bg-white rounded-[24px] overflow-hidden flex flex-col h-full transition-all hover:shadow-xl hover:shadow-slate-200/20"

@@ -37,34 +37,46 @@ export default function CareerSimulationPage() {
 
       <div className="flex-1 px-4 md:px-8 lg:px-10 py-2 md:py-4 min-h-0 flex flex-col">
         {activeTab === "recruiter" ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 flex-1 min-h-[500px] md:min-h-[600px] pb-[20px] md:pb-[32px]">
-            <div className="lg:col-span-4 h-fit lg:h-full min-h-0 order-2 lg:order-1">
-              <CompanyList
-                activeId={activeCompanyId}
-                setActiveId={setActiveCompanyId}
-              />
-            </div>
+          <div className="flex-1 flex flex-col">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 flex-1 min-h-[500px] md:min-h-[600px] pb-[20px] md:pb-[32px]">
+              <div className="lg:col-span-4 h-fit lg:h-full min-h-0 order-2 lg:order-1">
+                <CompanyList
+                  activeId={activeCompanyId}
+                  setActiveId={setActiveCompanyId}
+                />
+              </div>
 
-            <div className="lg:col-span-8 h-[480px] lg:h-full min-h-0 order-1 lg:order-2">
-              <ChatSimulation companyName={getCompanyName(activeCompanyId)} />
+              <div className="lg:col-span-8 h-[480px] lg:h-full min-h-0 order-1 lg:order-2">
+                <ChatSimulation companyName={getCompanyName(activeCompanyId)} />
+              </div>
             </div>
+            {/* Guaranteed Spacer for Mobile */}
+            <div className="lg:hidden h-3 w-full shrink-0" />
           </div>
         ) : activeTab === "salary" ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 flex-1 min-h-[500px] md:min-h-[600px] pb-[20px] md:pb-[32px]">
-            <div className="lg:col-span-4 h-fit lg:h-full min-h-0 order-2 lg:order-1">
-              <ScenarioCard />
-            </div>
+          <div className="flex-1 flex flex-col">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 flex-1 min-h-[500px] md:min-h-[600px] pb-[20px] md:pb-[32px]">
+              <div className="lg:col-span-4 h-fit lg:h-full min-h-0 order-2 lg:order-1">
+                <ScenarioCard />
+              </div>
 
-            <div className="lg:col-span-8 h-[480px] lg:h-full min-h-0 order-1 lg:order-2">
-              <ChatSimulation
-                type="salary"
-                showSuggestions={false}
-                companyName=""
-              />
+              <div className="lg:col-span-8 h-[480px] lg:h-full min-h-0 order-1 lg:order-2">
+                <ChatSimulation
+                  type="salary"
+                  showSuggestions={false}
+                  companyName=""
+                />
+              </div>
             </div>
+            {/* Guaranteed Spacer for Mobile */}
+            <div className="lg:hidden h-3 w-full shrink-0" />
           </div>
         ) : activeTab === "jobdesk" ? (
-          <JobdeskAnalyzer />
+          <div className="flex-1 flex flex-col">
+            <JobdeskAnalyzer />
+            {/* Guaranteed Spacer for Mobile */}
+            <div className="lg:hidden h-8 w-full shrink-0" />
+          </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-16 md:py-24 p-6 md:p-10 bg-white rounded-[24px] border border-[#E8ECF0]/80">
             <div className="w-16 h-16 md:w-20 md:h-20 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-300 mb-6 border-[0.8px] border-slate-100">
