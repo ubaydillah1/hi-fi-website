@@ -9,10 +9,10 @@ export default function CTASection() {
     <section className="min-h-screen py-24 bg-white flex flex-col items-center justify-center font-poppins">
       <div className="container mx-auto px-4 md:px-6 max-w-[1248px] flex flex-col items-center">
         <div
-          className="w-full max-w-[752px] rounded-[32px] p-[56px] flex flex-col items-center text-center text-white shadow-2xl shadow-blue-500/20"
+          className="w-full max-w-[752px] rounded-[24px] md:rounded-[32px] p-[32px] md:p-[56px] flex flex-col items-center text-center text-white shadow-2xl shadow-blue-500/20"
           style={{ background: gradient }}
         >
-          <h2 className="text-[36px] font-bold mb-4 leading-tight">
+          <h2 className="text-[26px] md:text-[36px] font-bold mb-4 leading-tight">
             Ready to Know Where You Stand?
           </h2>
 
@@ -25,7 +25,7 @@ export default function CTASection() {
             start.
           </p>
 
-          <Button className="bg-white text-[#066EFF] hover:bg-gray-50 h-14 px-8 text-[16px] font-medium rounded-[14px] shadow-lg mb-6">
+          <Button className="w-full sm:w-auto bg-white text-[#066EFF] hover:bg-gray-50 h-14 px-8 text-[16px] font-medium rounded-[14px] shadow-lg mb-6">
             Start Your Free Assessment <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
 

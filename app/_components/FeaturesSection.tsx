@@ -70,7 +70,7 @@ export default function FeaturesSection() {
             Platform Features
           </div>
 
-          <h2 className="text-[38px] font-extrabold text-[#0D3E9B] font-darker-grotesque leading-tight">
+          <h2 className="text-[28px] md:text-[38px] font-extrabold text-[#0D3E9B] font-darker-grotesque leading-[1.15] md:leading-tight">
             Everything You Need to Become Job-Ready
           </h2>
           <p className="text-[16px] text-gray-500 max-w-[650px] leading-relaxed">

@@ -54,7 +54,7 @@ export default function HowItWorks() {
             How It Works
           </div>
 
-          <h2 className="text-[38px] font-extrabold text-[#0D3E9B] font-darker-grotesque leading-tight">
+          <h2 className="text-[28px] md:text-[38px] font-extrabold text-[#0D3E9B] font-darker-grotesque leading-[1.15] md:leading-tight">
             From Zero to Job-Ready in 4 Steps
           </h2>
         </div>

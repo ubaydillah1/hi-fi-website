@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
             Testimonials
           </div>
 
-          <h2 className="text-[38px] font-extrabold text-[#0D3E9B] font-darker-grotesque leading-tight">
+          <h2 className="text-[28px] md:text-[38px] font-extrabold text-[#0D3E9B] font-darker-grotesque leading-[1.15] md:leading-tight">
             Loved by Fresh Graduates
           </h2>
         </div>
