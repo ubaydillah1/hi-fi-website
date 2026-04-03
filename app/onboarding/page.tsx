@@ -41,7 +41,6 @@ export default function OnboardingPage() {
 
       <div className="grow min-h-screen flex flex-col items-center bg-white px-4 md:px-8 py-10 md:py-0 md:justify-center">
         <div className="w-full max-w-[800px] flex flex-col items-center">
-          {/* Mobile step indicator */}
           <div className="lg:hidden w-full mb-8 text-center">
             <span className="text-[12px] font-bold text-[#066EFF] uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full">
               Step {currentStep} of {totalSteps}

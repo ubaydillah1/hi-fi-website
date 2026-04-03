@@ -20,29 +20,31 @@ export const ReadinessTabs = ({
   setActiveTab,
 }: ReadinessTabsProps) => {
   return (
-    <div className="flex gap-4 border-b border-slate-100 overflow-x-auto [&::-webkit-scrollbar]:hidden whitespace-nowrap mb-6 px-1.5 -mx-4 md:mx-0">
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          onClick={() => setActiveTab(tab.id)}
-          className={cn(
-            "px-4 pb-4 text-[15px] font-medium transition-all relative shrink-0 cursor-pointer",
-            activeTab === tab.id
-              ? "text-[#066EFF]"
-              : "text-slate-400 hover:text-slate-600",
-          )}
-        >
-          {tab.label}
-          <div
-            className={cn(
-              "absolute bottom-0 left-0 right-0 h-[3px] bg-[#066EFF] rounded-full transition-all duration-300 ease-out transform",
-              activeTab === tab.id
-                ? "opacity-100 scale-x-100"
-                : "opacity-0 scale-x-0",
-            )}
-          />
-        </button>
-      ))}
+    /* Standardized Tab Container with full-width border-b support */
+    <div className="w-full overflow-x-auto [&::-webkit-scrollbar]:hidden -mx-4 md:mx-0 px-4 md:px-0 mb-6">
+      <div className="flex gap-4 border-b border-slate-100 w-full min-w-max px-2">
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={cn(
+                "px-4 pb-4 text-[15px] font-medium transition-all relative shrink-0 cursor-pointer",
+                isActive ? "text-[#066EFF]" : "text-slate-400 hover:text-slate-600",
+              )}
+            >
+              <span className="font-poppins">{tab.label}</span>
+              <div
+                className={cn(
+                  "absolute bottom-0 left-0 right-0 h-[3px] bg-[#066EFF] rounded-full transition-all duration-300 ease-out transform",
+                  isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0",
+                )}
+              />
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };

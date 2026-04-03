@@ -39,7 +39,6 @@ export const DashboardSidebar = ({ className, isMobile }: { className?: string; 
   const router = useRouter();
 
   const handleLogout = () => {
-    // Optional: Clear any local storage or session cookies here
     router.push("/");
   };
 
@@ -59,7 +58,6 @@ export const DashboardSidebar = ({ className, isMobile }: { className?: string; 
           />
         </Link>
         
-        {/* Custom Mobile Close Button */}
         {isMobile && (
           <SheetClose asChild>
             <button className="lg:hidden p-2 -mr-2 text-slate-400 hover:bg-slate-50 rounded-xl transition-all active:scale-95">

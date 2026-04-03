@@ -26,19 +26,22 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F8FAFC]">
-      <div className="px-10 pt-10 pb-6">
-        <h1 className="text-[28px] font-semibold text-slate-900 font-poppins">
+    <div className="flex flex-col h-full overflow-y-auto bg-[#F8FAFC]">
+      <div className="p-4 md:p-8 lg:p-10 lg:pb-6 space-y-2 md:space-y-4">
+        <h1 className="text-[24px] md:text-[28px] font-semibold text-slate-900 font-poppins">
           Settings
         </h1>
+        <p className="text-[14px] md:text-[15px] text-slate-400 font-normal font-poppins">
+          Manage your account settings and preferences.
+        </p>
       </div>
 
-      <div className="px-10 pb-12 flex gap-8 items-start">
+      <div className="p-4 md:p-8 lg:p-10 lg:pt-0 pb-12 flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
         <SettingsSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
         <div
-          className="flex-1 bg-white rounded-[16px] min-w-0"
-          style={{ border: "0.8px solid #E8ECF0" }}
+          className="flex-1 bg-white rounded-[24px] min-w-0 w-full lg:w-auto transition-all hover:shadow-xl hover:shadow-slate-200/20"
+          style={{ border: "1.2px solid #F1F5F9" }}
         >
           {activeTab === "account" ? (
             <AccountSettings />

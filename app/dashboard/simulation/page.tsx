@@ -50,7 +50,6 @@ export default function CareerSimulationPage() {
                 <ChatSimulation companyName={getCompanyName(activeCompanyId)} />
               </div>
             </div>
-            {/* Guaranteed Spacer for Mobile */}
             <div className="lg:hidden h-3 w-full shrink-0" />
           </div>
         ) : activeTab === "salary" ? (
@@ -68,13 +67,11 @@ export default function CareerSimulationPage() {
                 />
               </div>
             </div>
-            {/* Guaranteed Spacer for Mobile */}
             <div className="lg:hidden h-3 w-full shrink-0" />
           </div>
         ) : activeTab === "jobdesk" ? (
           <div className="flex-1 flex flex-col">
             <JobdeskAnalyzer />
-            {/* Guaranteed Spacer for Mobile */}
             <div className="lg:hidden h-8 w-full shrink-0" />
           </div>
         ) : (

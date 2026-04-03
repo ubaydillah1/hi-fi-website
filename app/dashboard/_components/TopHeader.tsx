@@ -30,7 +30,6 @@ export const TopHeader = ({
       style={{ borderBottom: "0.8px solid #E8ECF0" }}
     >
       <div className="flex items-center gap-3 md:gap-0 flex-1">
-        {/* Mobile Sidebar Trigger */}
         <Sheet>
           <SheetTrigger asChild>
             <button className="lg:hidden p-2 -ml-2 text-slate-500 hover:bg-slate-50 rounded-xl transition-colors active:scale-95">
@@ -38,7 +37,6 @@ export const TopHeader = ({
             </button>
           </SheetTrigger>
           <SheetContent side="left" className="p-0 border-none w-[280px]" showCloseButton={false}>
-            {/* Accessibility requirements */}
             <div className="sr-only">
               <SheetHeader>
                 <SheetTitle>Navigation Menu</SheetTitle>

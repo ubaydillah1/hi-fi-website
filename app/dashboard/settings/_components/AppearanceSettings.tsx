@@ -23,37 +23,37 @@ export const AppearanceSettings = () => {
   const [activeTheme, setActiveTheme] = useState("light");
 
   return (
-    <div className="p-10 space-y-4 w-full">
-      <div className="space-y-1.5">
-        <h2 className="text-[22px] font-semibold text-slate-900 font-poppins">
+    <div className="p-5 md:p-10 space-y-6 md:space-y-8 w-full">
+      <div className="space-y-1 md:space-y-1.5">
+        <h2 className="text-[20px] md:text-[22px] font-semibold text-slate-900 font-poppins">
           Language & Appearance
         </h2>
-        <p className="text-[15px] text-slate-400 font-normal font-poppins">
+        <p className="text-[14px] md:text-[15px] text-slate-400 font-normal font-poppins">
           Customize your experience
         </p>
       </div>
 
-      <div className="space-y-4 w-full pt-4">
+      <div className="space-y-5 md:space-y-6 w-full">
         <div className="space-y-2 relative">
-          <label className="text-[14px] font-semibold text-slate-700 font-poppins block">
+          <label className="text-[14px] font-semibold text-slate-700 font-poppins block px-0.5">
             Language
           </label>
           <button
             onClick={() => setIsLangOpen(!isLangOpen)}
             className={cn(
-              "w-full bg-slate-50 border-[0.8px] border-slate-100 rounded-[12px] px-5 py-4 flex items-center justify-between hover:border-blue-200 hover:bg-white transition-all group cursor-pointer",
+              "w-full bg-slate-50 border-[0.8px] border-slate-100 rounded-[12px] px-4 md:px-5 py-3.5 md:py-4 flex items-center justify-between hover:border-blue-200 hover:bg-white transition-all group cursor-pointer",
               isLangOpen && "bg-white border-blue-200 ring-2 ring-blue-50",
             )}
           >
             <div className="flex items-center gap-3">
-              <span className="text-[20px] -mt-1">{selectedLang.flag}</span>
-              <span className="text-[15px] font-medium text-slate-700 font-poppins">
+              <span className="text-[18px] md:text-[20px] -mt-1">{selectedLang.flag}</span>
+              <span className="text-[14px] md:text-[15px] font-medium text-slate-700 font-poppins">
                 {selectedLang.label}
               </span>
             </div>
             <ChevronDown
               className={cn(
-                "w-5 h-5 text-slate-400 transition-transform duration-300",
+                "w-4 h-4 md:w-5 md:h-5 text-slate-400 transition-transform duration-300",
                 isLangOpen && "rotate-180 text-[#066EFF]",
               )}
             />
@@ -93,21 +93,21 @@ export const AppearanceSettings = () => {
         </div>
 
         <div className="space-y-2 pt-2">
-          <label className="text-[14px] font-semibold text-slate-700 font-poppins ml-1 block">
+          <label className="text-[14px] font-semibold text-slate-700 font-poppins px-0.5 block">
             Theme
           </label>
-          <div className="relative flex bg-slate-100/80 border-[0.8px] border-slate-200 p-1 rounded-[16px] w-[360px]">
+          <div className="relative flex bg-slate-100/80 border-[0.8px] border-slate-200 p-1 rounded-[16px] w-full max-w-[360px] h-12">
             <div
               className="absolute top-1 bottom-1 rounded-[12px] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] border-[0.8px] border-slate-200 transition-all duration-300 ease-out z-0"
               style={{
-                width: "116px",
+                width: "calc(33.333% - 4px)",
                 left: "4px",
                 transform: `translateX(${
                   activeTheme === "light"
-                    ? "0px"
+                    ? "0%"
                     : activeTheme === "dark"
-                      ? "118px"
-                      : "236px"
+                      ? "100%"
+                      : "200%"
                 })`,
               }}
             />
@@ -120,7 +120,7 @@ export const AppearanceSettings = () => {
                   key={theme.id}
                   onClick={() => setActiveTheme(theme.id)}
                   className={cn(
-                    "relative z-10 flex-1 flex items-center justify-center gap-2.5 h-10 rounded-[12px] transition-all duration-300 font-medium font-poppins text-[14px] cursor-pointer",
+                    "relative z-10 flex-1 flex items-center justify-center gap-2 md:gap-2.5 h-full rounded-[12px] transition-all duration-300 font-medium font-poppins text-[13px] md:text-[14px] cursor-pointer whitespace-nowrap",
                     isActive
                       ? "text-[#066EFF]"
                       : "text-slate-500 hover:text-slate-700",
@@ -128,7 +128,7 @@ export const AppearanceSettings = () => {
                 >
                   <Icon
                     className={cn(
-                      "w-4 h-4",
+                      "w-4 h-4 shrink-0",
                       isActive ? "text-[#066EFF]" : "text-slate-400",
                     )}
                   />
