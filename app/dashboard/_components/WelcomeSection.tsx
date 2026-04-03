@@ -11,18 +11,18 @@ export const WelcomeSection = ({
   streak: number;
 }) => {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <div>
-        <h1 className="text-[34px] font-extrabold text-[#0D3E9B] mb-1">
+        <h1 className="text-[24px] md:text-[30px] lg:text-[34px] font-extrabold text-[#0D3E9B] leading-tight">
           Welcome back, {name}! 👋
         </h1>
-        <p className="text-[16px] text-slate-400">
-          Here&apos;s your career readiness overview today.
+        <p className="text-[14px] md:text-[16px] text-slate-400 mt-1 md:mt-0 font-medium">
+          Here&apos;s your career readiness overview.
         </p>
       </div>
-      <div className="flex items-center gap-2.5 px-5 py-2.5 bg-orange-50 rounded-[20px] border border-orange-100 shadow-sm shadow-orange-100/50 transition-transform duration-300">
-        <Zap className="w-4.5 h-4.5 text-orange-500 fill-orange-500" />
-        <span className="text-[14px] font-medium text-[#92400E]">
+      <div className="flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 shadow-sm shadow-orange-100/50 transition-all hover:scale-[1.02] active:scale-95">
+        <Zap className="w-4 h-4 text-orange-500 fill-orange-500" />
+        <span className="text-[13px] md:text-[14px] font-bold text-orange-700 whitespace-nowrap">
           {streak} day streak!
         </span>
       </div>

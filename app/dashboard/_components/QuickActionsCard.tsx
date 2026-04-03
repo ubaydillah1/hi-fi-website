@@ -25,32 +25,32 @@ const quickActions = [
 export const QuickActionsCard = () => {
   return (
     <div
-      className="bg-white rounded-[16px] p-8 flex flex-col gap-4 h-full"
-      style={{ border: "0.8px solid #E8ECF0" }}
+      className="bg-white rounded-[24px] p-5 md:p-8 flex flex-col gap-5 h-full transition-all hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1"
+      style={{ border: "1.2px solid #F1F5F9" }}
     >
-      <p className="text-[15px] font-medium text-slate-700 tracking-tight">
+      <p className="text-[14px] md:text-[15px] font-bold text-slate-500 uppercase tracking-wider">
         Quick Actions
       </p>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         {quickActions.map((action) => (
           <button
             key={action.label}
-            className="group flex items-center justify-between p-4 rounded-2xl hover:bg-slate-50 transition-all active:scale-[0.98] cursor-pointer"
+            className="group flex items-center justify-between p-3 md:p-4 rounded-2xl hover:bg-slate-50 transition-all active:scale-[0.98] cursor-pointer border border-transparent hover:border-slate-100"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 md:gap-4">
               <div
                 className={cn(
-                  "w-12 h-12 rounded-2xl flex items-center justify-center transition-transform",
+                  "w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center transition-all group-hover:scale-110",
                   action.color,
                 )}
               >
                 <action.icon className="w-5 h-5" />
               </div>
-              <span className="text-[14px] font-medium text-black group-hover:text-slate-900 transition-colors tracking-tight line-clamp-1">
+              <span className="text-[13px] md:text-[14px] font-bold text-slate-700 group-hover:text-[#066EFF] transition-colors tracking-tight line-clamp-1">
                 {action.label}
               </span>
             </div>
-            <ChevronRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-all" />
+            <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#066EFF] group-hover:translate-x-1 transition-all" />
           </button>
         ))}
       </div>

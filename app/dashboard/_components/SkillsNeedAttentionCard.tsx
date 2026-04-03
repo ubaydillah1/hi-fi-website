@@ -14,27 +14,32 @@ const skillsNeedAttention = [
 export const SkillsNeedAttentionCard = () => {
   return (
     <div
-      className="bg-white rounded-[16px] p-8 h-full flex flex-col gap-4"
-      style={{ border: "0.8px solid #E8ECF0" }}
+      className="bg-white rounded-[24px] p-5 md:p-8 h-full flex flex-col gap-6 transition-all hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1"
+      style={{ border: "1.2px solid #F1F5F9" }}
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <AlertTriangle className="size-4 text-orange-500" />
-          <h3 className="text-[14px] font-poppins font-medium text-slate-700 tracking-tight">
+          <h3 className="text-[14px] md:text-[15px] font-bold text-slate-500 uppercase tracking-wider">
             Skills Need Attention
           </h3>
         </div>
-        <button className="text-[14px] font-medium cursor-pointer text-blue-500 hover:underline transition-colors tracking-tight">
+        <button className="text-[12px] md:text-[14px] font-bold cursor-pointer text-[#066EFF] hover:underline transition-colors tracking-tight">
           View All
         </button>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-5 md:space-y-6">
         {skillsNeedAttention.map((skill) => (
-          <div key={skill.name} className="flex items-center gap-3">
-            <span className="w-36 text-[13px] text-slate-500 truncate tracking-tight font-normal">
-              {skill.name}
-            </span>
-            <div className="flex-1 h-2.5 bg-slate-100 rounded-full overflow-hidden">
+          <div key={skill.name} className="flex flex-col gap-2">
+            <div className="flex items-center justify-between">
+              <span className="text-[13px] md:text-[14px] font-bold text-slate-700 tracking-tight">
+                {skill.name}
+              </span>
+              <span className="text-[12px] md:text-[13px] font-bold text-slate-400">
+                {skill.progress}%
+              </span>
+            </div>
+            <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
               <div
                 className={cn(
                   "h-full transition-all duration-1000 ease-in-out",
@@ -43,9 +48,6 @@ export const SkillsNeedAttentionCard = () => {
                 style={{ width: `${skill.progress}%` }}
               />
             </div>
-            <span className="w-12 text-[14px] font-medium text-slate-700 text-right">
-              {skill.progress}%
-            </span>
           </div>
         ))}
       </div>

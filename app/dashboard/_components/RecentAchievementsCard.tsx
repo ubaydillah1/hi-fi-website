@@ -31,33 +31,36 @@ const achievements = [
 export const RecentAchievementsCard = () => {
   return (
     <div
-      className="bg-white rounded-[16px] p-8 h-full flex flex-col gap-4"
-      style={{ border: "0.8px solid #E8ECF0" }}
+      className="bg-white rounded-[24px] p-5 md:p-8 h-full flex flex-col gap-5 transition-all hover:shadow-xl hover:shadow-indigo-500/5 hover:-translate-y-1"
+      style={{ border: "1.2px solid #F1F5F9" }}
     >
-      <div className="flex items-center gap-4">
-        <Award className="size-4 text-indigo-500" />
-        <h3 className="text-[14px] font-bold font-poppins text-slate-700 tracking-tight">
+      <div className="flex items-center gap-3">
+        <Award className="w-5 h-5 text-[#066EFF]" />
+        <h3 className="text-[14px] md:text-[15px] font-bold text-slate-500 uppercase tracking-wider">
           Recent Achievements
         </h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-3 md:space-y-4">
         {achievements.map((item) => (
           <div
             key={item.title}
-            className="flex items-center gap-2 p-3 rounded-[24px] border border-transparent hover:border-slate-50 bg-[#F5F7FA]"
+            className="flex items-center gap-3 p-3 rounded-[20px] border border-slate-50 bg-[#F8FAFC] transition-all hover:bg-white hover:shadow-md hover:shadow-slate-200/50"
           >
             <div
               className={cn(
-                "w-14 h-14 rounded-[18px] flex items-center justify-center transition-transform",
+                "w-11 h-11 md:w-12 md:h-12 rounded-[14px] flex items-center justify-center shrink-0",
+                item.bgColor
               )}
             >
-              <item.icon className={cn("w-7 h-7", item.color)} />
+              <item.icon className={cn("w-5 h-5 md:w-6 md:h-6", item.color)} />
             </div>
-            <div>
-              <h4 className="text-[13px] font-poppins font-medium text-slate-700 mb-1 transition-colors">
+            <div className="min-w-0">
+              <h4 className="text-[13px] md:text-[14px] font-bold text-slate-700 truncate">
                 {item.title}
               </h4>
-              <p className="text-[13px] text-slate-400">{item.sub}</p>
+              <p className="text-[11px] md:text-[12px] font-medium text-slate-400 truncate">
+                {item.sub}
+              </p>
             </div>
           </div>
         ))}
