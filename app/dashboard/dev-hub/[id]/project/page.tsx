@@ -434,7 +434,7 @@ export default function ProjectWorkspacePage() {
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <GithubIcon className="w-4.5 h-4.5" />
-                  </div>
+                    </div>
                   <input
                     type="text"
                     value={githubUrl}

@@ -11,9 +11,7 @@ const steps = [
   { id: 1, title: "Welcome to Wirapath" },
   { id: 2, title: "Personal Information" },
   { id: 3, title: "Choose Your Role" },
-  { id: 4, title: "Upload CV" },
-  { id: 5, title: "Upload Transcript" },
-  { id: 6, title: "Connect GitHub" },
+  { id: 4, title: "Upload Transcript" },
 ];
 
 export default function OnboardingSidebar({

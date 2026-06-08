@@ -83,7 +83,37 @@ const CircularProgress = ({ value, total, color, icon: Icon }: CircularProgressP
   );
 };
 
-export const GrowthProgressCard = () => {
+export const GrowthProgressCard = ({
+  growthProgress,
+}: {
+  growthProgress?: { label: string; value: number; total: number }[];
+}) => {
+  const items = growthProgress || [
+    { label: "Skills Mapped", value: 0, total: 10 },
+    { label: "Projects Done", value: 0, total: 5 },
+    { label: "Simulations", value: 0, total: 3 },
+  ];
+
+  const getIconAndColor = (label: string) => {
+    const l = label.toLowerCase();
+    if (l.includes("skills") || l.includes("mapped")) {
+      return { icon: Target, color: "#3B82F6" };
+    }
+    if (l.includes("projects") || l.includes("done")) {
+      return { icon: Code2, color: "#10B981" };
+    }
+    return { icon: Briefcase, color: "#F59E0B" };
+  };
+
+  const finalProgress = items.map((item) => {
+    const { icon, color } = getIconAndColor(item.label);
+    return {
+      ...item,
+      icon,
+      color,
+    };
+  });
+
   return (
     <div
       className="bg-white rounded-[24px] p-4 md:p-6 lg:p-8 flex flex-col h-full gap-5 transition-all group border border-slate-100 shadow-sm shadow-slate-200/20"
@@ -101,7 +131,7 @@ export const GrowthProgressCard = () => {
       </div>
 
       <div className="flex-1 flex items-center justify-around gap-2 md:gap-4">
-        {growthProgress.map((item) => (
+        {finalProgress.map((item) => (
           <div key={item.label} className="flex flex-col items-center flex-1">
             <CircularProgress {...item} />
             <div className="mt-3 md:mt-4 flex flex-col items-center text-center">

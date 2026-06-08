@@ -7,14 +7,12 @@ import Step1 from "./_components/Step1";
 import Step2 from "./_components/Step2";
 import Step3 from "./_components/Step3";
 import Step4 from "./_components/Step4";
-import Step5 from "./_components/Step5";
-import Step6 from "./_components/Step6";
 
 export default function OnboardingPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
 
-  const totalSteps = 6;
+  const totalSteps = 4;
   const progressPercent = (currentStep / totalSteps) * 100;
 
   const nextStep = () => {
@@ -64,12 +62,8 @@ export default function OnboardingPage() {
             />
           )}
 
-          {currentStep === 4 && <Step4 onNext={nextStep} onBack={prevStep} />}
-
-          {currentStep === 5 && <Step5 onNext={nextStep} onBack={prevStep} />}
-
-          {currentStep === 6 && (
-            <Step6
+          {currentStep === 4 && (
+            <Step4
               onFinish={finishOnboarding}
               onBack={prevStep}
             />

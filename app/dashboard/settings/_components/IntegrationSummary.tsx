@@ -14,7 +14,7 @@ interface SummaryCardProps {
 const summaryCards: SummaryCardProps[] = [
   {
     label: "Connected",
-    count: 2,
+    count: 1,
     sub: "Active & syncing",
     color: "text-emerald-500",
     bgColor: "bg-emerald-50/50",

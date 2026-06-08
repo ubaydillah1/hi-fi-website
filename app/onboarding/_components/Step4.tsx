@@ -2,31 +2,24 @@
 
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  UploadIcon,
-  FileTextIcon,
-  Trash2Icon,
-  Loader2,
-} from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon, GraduationCapIcon, FileTextIcon, Trash2Icon, Loader2 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { toast } from "sonner";
 
 export default function Step4({
-  onNext,
+  onFinish,
   onBack,
 }: {
-  onNext: () => void;
+  onFinish: () => void;
   onBack: () => void;
 }) {
-  const { user, uploadCv } = useAuth();
+  const { user, uploadTranscript, completeOnboarding } = useAuth();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const existingCvName = user?.cv_url
-    ? user.cv_url.substring(user.cv_url.lastIndexOf("/") + 1)
+  const existingTranscriptName = user?.transcript_url
+    ? user.transcript_url.substring(user.transcript_url.lastIndexOf("/") + 1)
     : "";
 
   const handleBoxClick = () => {
@@ -43,10 +36,10 @@ export default function Step4({
         return;
       }
 
-      const allowedExtensions = ["pdf", "doc", "docx"];
+      const allowedExtensions = ["pdf", "jpg", "jpeg", "png"];
       const extension = file.name.split(".").pop()?.toLowerCase();
       if (!extension || !allowedExtensions.includes(extension)) {
-        toast.error("Invalid file format. Please upload PDF, DOC, or DOCX.");
+        toast.error("Invalid format. Please upload PDF, JPG, or PNG.");
         return;
       }
 
@@ -61,18 +54,31 @@ export default function Step4({
   };
 
   const handleContinue = async () => {
-    if (!selectedFile) {
-      onNext();
-      return;
-    }
-
     setIsSubmitting(true);
     try {
-      await uploadCv(selectedFile);
-      toast.success("CV uploaded successfully!");
-      onNext();
+      if (selectedFile) {
+        await uploadTranscript(selectedFile);
+        toast.success("Transcript uploaded successfully!");
+      }
+      await completeOnboarding();
+      toast.success("Welcome aboard! Onboarding successfully completed.");
+      onFinish();
     } catch (e) {
-      const errorMessage = e instanceof Error ? e.message : "Failed to upload CV. Please try again.";
+      const errorMessage = e instanceof Error ? e.message : "Failed to finalize onboarding. Please try again.";
+      toast.error(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleSkipAndFinish = async () => {
+    setIsSubmitting(true);
+    try {
+      await completeOnboarding();
+      toast.success("Welcome aboard! Onboarding successfully completed.");
+      onFinish();
+    } catch (e) {
+      const errorMessage = e instanceof Error ? e.message : "Failed to skip onboarding. Please try again.";
       toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -91,11 +97,10 @@ export default function Step4({
     <div className="flex flex-col items-center justify-center w-full animate-in fade-in duration-500 max-w-[720px] mx-auto py-4 px-4 sm:px-0">
       <div className="w-full mb-8 md:mb-10 text-center md:text-left">
         <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-extrabold text-[#0D3E9B] mb-2 tracking-tight leading-tight">
-          Upload Your CV
+          Upload Academic Transcript
         </h2>
         <p className="text-[14px] md:text-[15px] font-medium text-slate-400 leading-relaxed opacity-80">
-          We&apos;ll analyze your CV to understand your current skills and
-          experience.
+          Your transcript helps us map your academic competencies to industry requirements.
         </p>
       </div>
 
@@ -103,7 +108,7 @@ export default function Step4({
         type="file"
         ref={fileInputRef}
         onChange={handleFileChange}
-        accept=".pdf,.doc,.docx"
+        accept=".pdf,.jpg,.jpeg,.png"
         className="hidden"
       />
 
@@ -135,36 +140,36 @@ export default function Step4({
           onClick={handleBoxClick}
           className="w-full min-h-[200px] md:h-[250px] rounded-[24px] md:rounded-[32px] border-[1.6px] border-dashed border-[#066EFF4D] bg-[#F0F4FF80] flex flex-col items-center justify-center p-6 gap-4 cursor-pointer hover:bg-[#F0F4FF] transition-all group"
         >
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center shadow-sm shadow-blue-100 group-hover:scale-105 transition-transform">
-            <UploadIcon className="w-6 h-6 md:w-8 md:h-8 text-[#066EFF]" />
+          <div className="flex items-center justify-center group-hover:scale-110 transition-transform">
+            <GraduationCapIcon className="w-10 h-10 md:w-12 md:h-12 text-[#066EFF]" />
           </div>
           <div className="text-center">
             <p className="text-[15px] md:text-[18px] font-bold text-[#475569] mb-1 md:mb-2 leading-tight">
-              Drop your CV here or click to browse
+              Drop your transcript here or click to browse
             </p>
-            <p className="text-[12px] md:text-[13px] font-medium text-[#94A3B8]">
-              Supports PDF, DOC, DOCX (Max 10MB)
+            <p className="text-[12px] md:text-[13px] font-medium text-slate-400">
+              Supports PDF, JPG, PNG (Max 10MB)
             </p>
           </div>
         </div>
       )}
 
-      {/* Show existing CV name if already uploaded */}
-      {!selectedFile && existingCvName && (
+      {/* Show existing transcript name if already uploaded */}
+      {!selectedFile && existingTranscriptName && (
         <div className="w-full mt-4 px-4 py-2.5 bg-emerald-50/50 border border-emerald-100 rounded-xl flex items-center gap-2.5">
           <div className="w-2 h-2 rounded-full bg-emerald-500" />
           <span className="text-[12px] font-semibold text-emerald-700">
             Previously uploaded:
           </span>
           <span className="text-[12px] font-semibold text-slate-500 truncate max-w-[300px]">
-            {existingCvName}
+            {existingTranscriptName}
           </span>
         </div>
       )}
 
       <div className="w-full text-center md:text-left mt-8">
         <button
-          onClick={onNext}
+          onClick={handleSkipAndFinish}
           disabled={isSubmitting}
           className="text-[14px] font-semibold text-slate-400 hover:text-[#066EFF] transition-colors cursor-pointer disabled:opacity-50"
         >
@@ -179,9 +184,7 @@ export default function Step4({
           className="h-14 w-14 flex items-center justify-center rounded-[20px] bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-gray-900 transition-all active:scale-95 sm:w-auto sm:px-6 sm:gap-2 sm:bg-transparent sm:hover:bg-transparent sm:h-auto disabled:opacity-50 cursor-pointer"
         >
           <ChevronLeftIcon className="w-5 h-5" />
-          <span className="hidden sm:inline text-[15px] font-semibold">
-            Back
-          </span>
+          <span className="hidden sm:inline text-[15px] font-semibold">Back</span>
         </button>
         <div className="hidden sm:block grow" />
         <Button
@@ -192,11 +195,11 @@ export default function Step4({
           {isSubmitting ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin" />
-              Uploading...
+              Completing...
             </>
           ) : (
             <>
-              {selectedFile ? "Upload & Continue" : "Continue"}
+              {selectedFile ? "Upload & Finish" : "Finish Setup"}
               <ChevronRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </>
           )}

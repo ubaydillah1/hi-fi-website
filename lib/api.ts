@@ -73,14 +73,31 @@ export type MarketDemandApiItem = {
   bar_width?: number;
 };
 
-export type DashboardSummary = {
+export interface DashboardSummary {
   name: string;
   role: string;
   initials: string;
   streak: number;
   readinessScore: number;
   readinessTrend: string;
-};
+  growthProgress?: {
+    label: string;
+    value: number;
+    total: number;
+  }[];
+  continueWorking?: {
+    id?: string;
+    title: string;
+    status: string;
+    progress?: number;
+    type: "project" | "simulation" | "assessment";
+  }[];
+  recentAchievements?: {
+    title: string;
+    sub: string;
+    type: "project" | "simulation" | "assessment" | "onboarding";
+  }[];
+}
 
 export type OnboardingPayload = {
   email: string;

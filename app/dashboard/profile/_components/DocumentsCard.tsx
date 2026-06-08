@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FileText, Files, Download, FolderOpen } from "lucide-react";
+import { Files, Download, FolderOpen } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
 export const DocumentsCard = () => {
@@ -12,10 +12,9 @@ export const DocumentsCard = () => {
     return url.split("/").pop() || url;
   };
 
-  const cvFilename = getFilenameFromUrl(user?.cv_url ?? null);
   const transcriptFilename = getFilenameFromUrl(user?.transcript_url ?? null);
 
-  const hasDocs = cvFilename || transcriptFilename;
+  const hasDocs = !!transcriptFilename;
 
   return (
     <div className="bg-white rounded-[24px] border border-[#F1F5F9] shadow-sm shadow-slate-200/5 overflow-hidden flex flex-col">
@@ -34,27 +33,6 @@ export const DocumentsCard = () => {
           </div>
         ) : (
           <>
-            {cvFilename && (
-              <a
-                href={user?.cv_url ?? "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-slate-50/50 rounded-[16px] flex items-center justify-between border border-slate-100 hover:border-blue-100 transition-all cursor-pointer group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center border border-slate-100 shadow-sm">
-                    <FileText className="w-4 h-4 text-blue-500" />
-                  </div>
-                  <div>
-                    <p className="text-[13px] font-bold text-slate-800">CV</p>
-                    <p className="text-[11px] text-slate-400 font-medium truncate max-w-[120px]">
-                      {cvFilename}
-                    </p>
-                  </div>
-                </div>
-                <Download className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-500 transition-colors" />
-              </a>
-            )}
 
             {transcriptFilename && (
               <a

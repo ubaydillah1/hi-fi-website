@@ -4,36 +4,75 @@ import { useRouter } from "next/navigation";
 import { Play, Code2, Briefcase, FileText, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const workItems = [
-  {
-    title: "REST API with Express",
-    status: "In Progress — Step 3 of 4",
-    progress: 75,
-    icon: Code2,
-    iconBg: "bg-emerald-50",
-    iconColor: "text-emerald-500",
-    hasProgress: true,
-  },
-  {
-    title: "Interview at Gojek",
-    status: "Recruiter Simulation",
-    icon: Briefcase,
-    iconBg: "bg-amber-50",
-    iconColor: "text-amber-500",
-    hasProgress: false,
-  },
-  {
-    title: "AI Code Review",
-    status: "Last review: 57/100",
-    icon: FileText,
-    iconBg: "bg-blue-50",
-    iconColor: "text-blue-500",
-    hasProgress: false,
-  },
-];
+export interface WorkItem {
+  id?: string;
+  title: string;
+  status: string;
+  progress?: number;
+  type: "project" | "simulation" | "assessment";
+}
 
-export const ContinueWorkingCard = () => {
+export const ContinueWorkingCard = ({
+  workItems,
+}: {
+  workItems?: WorkItem[];
+}) => {
   const router = useRouter();
+
+  const items = workItems || [
+    {
+      title: "REST API with Express",
+      status: "Recommended Project",
+      type: "project" as const,
+    },
+    {
+      title: "Simulate Job Interview",
+      status: "Practice interactive HR chat",
+      type: "simulation" as const,
+    },
+  ];
+
+  const getIconAndStyle = (type: "project" | "simulation" | "assessment") => {
+    switch (type) {
+      case "project":
+        return {
+          icon: Code2,
+          iconBg: "bg-emerald-50",
+          iconColor: "text-emerald-500",
+        };
+      case "simulation":
+        return {
+          icon: Briefcase,
+          iconBg: "bg-amber-50",
+          iconColor: "text-amber-500",
+        };
+      case "assessment":
+      default:
+        return {
+          icon: FileText,
+          iconBg: "bg-blue-50",
+          iconColor: "text-blue-500",
+        };
+    }
+  };
+
+  const handleItemClick = (item: WorkItem) => {
+    switch (item.type) {
+      case "project":
+        if (item.id) {
+          router.push(`/dashboard/dev-hub/${item.id}`);
+        } else {
+          router.push("/dashboard/dev-hub");
+        }
+        break;
+      case "simulation":
+        router.push("/dashboard/simulation");
+        break;
+      case "assessment":
+        router.push("/dashboard/readiness");
+        break;
+    }
+  };
 
   return (
     <div
@@ -50,43 +89,47 @@ export const ContinueWorkingCard = () => {
       </div>
 
       <div className="space-y-3">
-        {workItems.map((item) => (
-          <div
-            key={item.title}
-            onClick={() => router.push("/dashboard/dev-hub")}
-            className="group flex flex-col gap-2 p-3 rounded-[16px] border border-slate-50 bg-[#F8FAFC] hover:bg-slate-50 transition-all cursor-pointer"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div
-                  className={cn(
-                    "w-9 h-9 rounded-[12px] flex items-center justify-center shrink-0",
-                    item.iconBg
-                  )}
-                >
-                  <item.icon className={cn("w-4.5 h-4.5", item.iconColor)} />
+        {items.map((item) => {
+          const style = getIconAndStyle(item.type);
+          const Icon = style.icon;
+          return (
+            <div
+              key={item.title}
+              onClick={() => handleItemClick(item)}
+              className="group flex flex-col gap-2 p-3 rounded-[16px] border border-slate-50 bg-[#F8FAFC] hover:bg-slate-50 transition-all cursor-pointer"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className={cn(
+                      "w-9 h-9 rounded-[12px] flex items-center justify-center shrink-0",
+                      style.iconBg
+                    )}
+                  >
+                    <Icon className={cn("w-4.5 h-4.5", style.iconColor)} />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-[13px] font-semibold text-slate-800 font-poppins tracking-tight truncate">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] font-medium text-slate-400 truncate">
+                      {item.status}
+                    </p>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <h4 className="text-[13px] font-semibold text-slate-800 font-poppins tracking-tight truncate">
-                    {item.title}
-                  </h4>
-                  <p className="text-[11px] font-medium text-slate-400 truncate">
-                    {item.status}
-                  </p>
-                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-slate-400 transition-all" />
               </div>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-slate-400 transition-all" />
+              {item.progress !== undefined && (
+                <div className="w-full h-1.5 bg-slate-200/50 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-emerald-500 transition-all duration-1000 ease-in-out"
+                    style={{ width: `${item.progress}%` }}
+                  />
+                </div>
+              )}
             </div>
-            {item.hasProgress && (
-              <div className="w-full h-1.5 bg-slate-200/50 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-emerald-500 transition-all duration-1000 ease-in-out"
-                  style={{ width: `${item.progress}%` }}
-                />
-              </div>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

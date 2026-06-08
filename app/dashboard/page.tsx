@@ -44,14 +44,14 @@ export default function DashboardPage() {
           </div>
 
           <div className="lg:col-span-7 min-h-[220px] md:min-h-[240px]">
-            <GrowthProgressCard />
+            <GrowthProgressCard growthProgress={summary.growthProgress} />
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 pb-4">
           <SkillsNeedAttentionCard />
-          <ContinueWorkingCard />
-          <RecentAchievementsCard />
+          <ContinueWorkingCard workItems={summary.continueWorking} />
+          <RecentAchievementsCard achievements={summary.recentAchievements} />
         </div>
       </div>
     </div>
